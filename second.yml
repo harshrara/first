@@ -1,0 +1,18 @@
+---
+ - hosts: all
+   tasks: 
+           - name: install nfs utlis
+             yum: 
+                  name: nfs-utlis
+                  state: present
+           - name: create a directory
+             file: 
+                   path: /mick
+                   state: directory
+                   ower: nobody
+                   group: nobody
+                   
+           - service: 
+                      name: nfs-utlis
+                      state: started     
+        
